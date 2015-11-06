@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 import acm.program.*;
 import acm.graphics.*;
 /*
@@ -10,8 +12,26 @@ import acm.graphics.*;
 public class Ejemplo1 extends GraphicsProgram{
 
 	public void run (){
-		GLabel etiqueta =  new GLabel ("hola mundo");
-		add(etiqueta);
+
+		//cambio el tamaño de la ventana 
+		setSize (800, 600);
+		//llamo al  metodo que dibuja la piramide 
+		pintaPiramide ();
+
+	}
+
+	public void pintaPiramide(){
+		int numLadrillosBase= 14;
+		int anchoLadrillo= 30;
+		int altoLadrillo = 12;
+		for (int j=0; j<numLadrillosBase; j++){
+			for (int i=0; i<numLadrillosBase-j; i++){
+				GRect ladrillo = new GRect (anchoLadrillo, altoLadrillo);
+				ladrillo.setFilled(true);
+				ladrillo.setFillColor(Color.GREEN);
+				add(ladrillo,anchoLadrillo*j/2 + anchoLadrillo*i, altoLadrillo*j );
+			}
+		}
 		
 	}
 }
