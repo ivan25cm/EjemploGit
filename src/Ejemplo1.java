@@ -25,16 +25,22 @@ public class Ejemplo1 extends GraphicsProgram{
 		int anchoLadrillo= 30;
 		int altoLadrillo = 12;
 		
-		int altoPiramide = numLadrillosBase * altoLadrillo;
+		int ancho = getWidth();
+		int alto = getHeight();
 		
-		//querido yo del martes:
-		//te falta girar la piramide 
+		int altoPiramide = numLadrillosBase * altoLadrillo;
+		int basePiramide = numLadrillosBase * anchoLadrillo;
+
+		//terminado y probado con varios tamaños de ladrillo
 		for (int j=0; j<numLadrillosBase; j++){
 			for (int i=0; i<numLadrillosBase-j; i++){
 				GRect ladrillo = new GRect (anchoLadrillo, altoLadrillo);
 				ladrillo.setFilled(true);
 				ladrillo.setFillColor(Color.GREEN);
-				add(ladrillo,anchoLadrillo*j/2 + anchoLadrillo*i,getHeight()-altoLadrillo- altoLadrillo*j );
+				
+				add(ladrillo,
+						ancho/2 - basePiramide/2 + anchoLadrillo*j/2 + anchoLadrillo*i,
+						alto-altoLadrillo- altoLadrillo*j );
 				
 				pause (20);
 			}
