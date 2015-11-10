@@ -15,7 +15,7 @@ public class Ejemplo1 extends GraphicsProgram{
 
 		//cambio el tamaño de la ventana 
 		setSize (800, 600);
-		//llamo al  metodo que dibuja la piramide 
+		//llamo al  metodo que dibuja la piramide
 		pintaPiramide ();
 
 	}
@@ -24,6 +24,9 @@ public class Ejemplo1 extends GraphicsProgram{
 		int numLadrillosBase= 14;
 		int anchoLadrillo= 30;
 		int altoLadrillo = 12;
+		
+		int altoPiramide = numLadrillosBase * altoLadrillo;
+		
 		//querido yo del martes:
 		//te falta girar la piramide 
 		for (int j=0; j<numLadrillosBase; j++){
@@ -31,7 +34,9 @@ public class Ejemplo1 extends GraphicsProgram{
 				GRect ladrillo = new GRect (anchoLadrillo, altoLadrillo);
 				ladrillo.setFilled(true);
 				ladrillo.setFillColor(Color.GREEN);
-				add(ladrillo,anchoLadrillo*j/2 + anchoLadrillo*i, altoLadrillo*j );
+				add(ladrillo,anchoLadrillo*j/2 + anchoLadrillo*i,getHeight()-altoLadrillo- altoLadrillo*j );
+				
+				pause (20);
 			}
 		}
 		
